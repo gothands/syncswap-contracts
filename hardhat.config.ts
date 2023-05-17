@@ -6,6 +6,20 @@ import "@nomiclabs/hardhat-solhint";
 import "hardhat-gas-reporter";
 require('dotenv').config()
 
+const zkSyncTestnet =
+  process.env.NODE_ENV == "test"
+    ? {
+        url: "http://localhost:3050",
+        ethNetwork: "http://localhost:8545",
+        zksync: true,
+      }
+    : {
+        url: "https://testnet.era.zksync.dev",
+        ethNetwork: "goerli",
+        zksync: true,
+        verifyURL: 'https://testnet-explorer.zksync.dev/contract_verification'
+      };
+
 module.exports = {
   // hardhat-zksync-solc
   // The compiler configuration for zkSync artifacts.
@@ -38,7 +52,7 @@ module.exports = {
     artifacts: "./artifacts"
   },
 
-  defaultNetwork: 'hardhat',
+  defaultNetwork: 'zksyncTestnet',
   networks: {
     hardhat: {
       chainId: 280,
@@ -54,15 +68,7 @@ module.exports = {
       url: "https://eth.llamarpc.com"
     },
 
-    zkSyncTestnet: {
-      zksync: true,
-      // URL of the Ethereum Web3 RPC, or the identifier of the network (e.g. `mainnet` or `goerli`)
-      ethNetwork: "goerli",
-      // URL of the zkSync network RPC
-      url: 'https://zksync2-testnet.zksync.dev',
-      // Verification endpoint for Goerli
-      verifyURL: 'https://testnet-explorer.zksync.dev/contract_verification'
-    },
+    zkSyncTestnet,
 
     zkSyncMainnet: {
       zksync: true,
