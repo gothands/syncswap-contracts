@@ -46,6 +46,7 @@
     "deploy-fee-recipient-zksync-testnet": "yarn hardhat deploy-zksync --script deployFeeRecipientTestnet.ts --network zkSyncTestnet",
     "deploy-fee-recipient-zksync-mainnet": "yarn hardhat deploy-zksync --script deployFeeRecipientMainnet.ts --network zkSyncMainnet",
     "deploy-zksync-testnet": "yarn hardhat deploy-zksync --script deployTestnet.ts --network zkSyncTestnet",
+    "deploy-zksync-local": "NODE_ENV=test yarn hardhat deploy-zksync --script deployLocal.ts --network zkSyncTestnet",
     "deploy-zksync-mainnet": "yarn hardhat deploy-zksync --script deployMainnet.ts --network zkSyncMainnet",
     "deploy-scroll-testnet": "yarn hardhat run --network scrollTestnet deploy/deployScrollTestnet.ts",
     "deploy-polygon-testnet": "yarn hardhat run --network polygonTestnet deploy/deployPolygonTestnet.ts",
