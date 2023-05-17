@@ -3,7 +3,7 @@ import { BytesLike, Contract, Overrides } from "ethers";
 import { ethers } from "hardhat";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Wallet } from "zksync-web3";
-import * as secrets from "../secrets.json";
+import * as secrets from "../../secrets.json";
 
 let wallet: Wallet;
 let deployer: Deployer;
